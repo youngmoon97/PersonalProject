@@ -1,7 +1,33 @@
+<script setup>
+import { ref } from "vue";
+
+const colors = ref([
+  "indigo",
+  "warning",
+  "pink darken-2",
+  "deep-purple accent-4",
+  "red lighten-1",
+]);
+const slides = ref(["First", "Second", "Third", "Fourth", "Fifth"]);
+</script>
+
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <v-img height="300" src="@/assets/logo.svg" />
+      <v-carousel
+        cycle
+        height="400"
+        hide-delimiter-background
+        show-arrows="hover"
+      >
+        <v-carousel-item v-for="(slide, i) in slides" :key="i">
+          <v-sheet :color="colors[i]" height="100%">
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">{{ slide }} Slide</div>
+            </div>
+          </v-sheet>
+        </v-carousel-item>
+      </v-carousel>
 
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
@@ -57,7 +83,3 @@
     </v-responsive>
   </v-container>
 </template>
-
-<script setup>
-//
-</script>

@@ -1,7 +1,5 @@
 <template>
-  <Test />
+  <h1>as</h1>
 </template>
 
-<script setup>
-import Test from "@/components/Test.vue";
-</script>
+<script setup></script>
